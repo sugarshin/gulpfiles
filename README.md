@@ -1,5 +1,7 @@
 # My gulpfile template
 
+\npm i -D browser-sync coffee-script gulp gulp-bump gulp-coffee gulp-coffeelint gulp-header gulp-notify gulp-plumber gulp-rename gulp-uglify
+
 ## Demo
 
 ## Quickstart
@@ -24,9 +26,9 @@ Type: *Type*
 
 ## Contributing
 
-[gulp](http://gulpjs.com/)
+[gulp.js](//gulpjs.com/)
 
-[CoffeeScript](http://coffeescript.org/)
+[CoffeeScript](//coffeescript.org/)
 
 ```shell
 npm i
