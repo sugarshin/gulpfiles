@@ -63,8 +63,10 @@ gulp.task 'patch', ->
 
 gulp.task 'build', ['coffee'], ->
   gulp.src "dest/#{fileName}.js"
-    .pipe uglify
+    .pipe uglify(
       preserveComments: 'some'
-    .pipe rename
+    )
+    .pipe rename(
       extname: '.min.js'
+    )
     .pipe gulp.dest('dest/')
