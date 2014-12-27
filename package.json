@@ -1,22 +1,9 @@
 {
-  "name": "file-name.js",
+  "name": "file-name",
   "version": "0.0.1",
   "description": "My gulpfile template",
   "homepage": "https://github.com/sugarshin",
-  "repository": "git@github.com:sugarshin/file-name.js.git",
+  "repository": "git@github.com:sugarshin/gulpfile.git",
   "author": "sugarshin",
-  "license": "MIT",
-  "devDependencies": {
-    "browser-sync": "",
-    "coffee-script": "",
-    "gulp": "",
-    "gulp-bump": "",
-    "gulp-coffee": "",
-    "gulp-coffeelint": "",
-    "gulp-header": "",
-    "gulp-notify": "",
-    "gulp-plumber": "",
-    "gulp-rename": "",
-    "gulp-uglify": ""
-  }
+  "license": "MIT"
 }
