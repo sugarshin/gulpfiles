@@ -16,7 +16,7 @@ path =
 
 gulp.task 'jade', ->
   gulp.src path.html
-    .pipe plumber()
+    .pipe plumber
       errorHandler: notify.onError '<%= error.message %>'
     .pipe jade pretty: true
     .pipe gulp.dest $.DEST
