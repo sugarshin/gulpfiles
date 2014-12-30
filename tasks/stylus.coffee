@@ -1,20 +1,25 @@
 gulp = require 'gulp'
-plumber = require 'gulp-plumber'
-notify = require 'gulp-notify'
 stylus = require 'gulp-stylus'
 nib = require 'nib'
-
-fileName = 'file-name'
+plumber = require 'gulp-plumber'
+notify = require 'gulp-notify'
 
 $ =
   SRC: 'src'
   DEST: 'dest'
 
+path =
+  css: [
+    "#{$.SRC}/**/*.styl"
+    "!#{$.SRC}/**/_**/*.styl"
+    "!#{$.SRC}/**/_*.styl"
+  ]
+
 gulp.task 'stylus', ->
-  gulp.src "#{$.SRC}/#{fileName}.styl"
+  gulp.src path.css
     .pipe plumber
       errorHandler: notify.onError '<%= error.message %>'
     .pipe stylus
       use: nib()
-      compress: false
-    .pipe gulp.dest("#{$.DEST}")
+      compress: true
+    .pipe gulp.dest $.DEST

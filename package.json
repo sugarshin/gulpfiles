@@ -1,9 +1,9 @@
 {
   "name": "file-name",
   "version": "0.0.1",
-  "description": "My gulpfile template",
+  "description": "My gulpfiles",
   "homepage": "https://github.com/sugarshin",
-  "repository": "git@github.com:sugarshin/gulpfile.git",
+  "repository": "git@github.com:sugarshin/gulpfiles.git",
   "author": "sugarshin",
   "license": "MIT"
 }

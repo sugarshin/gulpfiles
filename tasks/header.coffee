@@ -15,13 +15,14 @@ getBanner = ->
 
   """
 
-fileName = 'mixin'
+NAME = 'file-name'
 
 $ =
   SRC: 'src'
   DEST: 'dest'
+  GH_PAGES: 'gh-pages'
 
 gulp.task 'header', ->
-  gulp.src "#{$.SRC}/#{fileName}.coffee"
+  gulp.src "#{$.DEST}/#{NAME}.js"
     .pipe header(getBanner())
-    .pipe gulp.dest("#{$.DEST}")
+    .pipe gulp.dest $.DEST

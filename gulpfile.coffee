@@ -1,35 +1,36 @@
 gulp = require 'gulp'
-uglify = require 'gulp-uglify'
-rename = require 'gulp-rename'
 browserSync = require 'browser-sync'
-runSequence = require 'run-sequence'
+sequence = require 'gulp-sequence'
 requireDir = require 'require-dir'
+
 requireDir './tasks'
 
 reload = browserSync.reload
 
-fileName = 'file-name'
+NAME = 'file-name'
 
 $ =
   SRC: 'src'
   DEST: 'dest'
-  DEMO: 'demo'
 
 gulp.task 'serve', ->
   browserSync
+    startPath: '/'
     server:
       baseDir: './'
-      index: "#{$.DEMO}/index.html"
+      index: "#{$.DEST}/"
+      routes:
+        '/': "#{$.DEST}/"
 
 gulp.task 'default', ['serve'], ->
-  gulp.watch ["#{$.SRC}/#{fileName}.coffee"], ['coffee', reload]
+  gulp.watch ["#{$.SRC}/*.coffee"], ['browserify', reload]
 
-gulp.task 'build', ['coffee'], ->
-  gulp.src "#{$.DEST}/#{fileName}.js"
-    .pipe uglify(
-      preserveComments: 'some'
-    )
-    .pipe rename(
-      extname: '.min.js'
-    )
-    .pipe gulp.dest("#{$.DEST}")
+# gulp.task 'build', ['coffee'], ->
+#   gulp.src "#{$.DEST}/#{NAME}.js"
+#     .pipe uglify(
+#       preserveComments: 'some'
+#     )
+#     .pipe rename(
+#       extname: '.min.js'
+#     )
+#     .pipe gulp.dest $.DEST

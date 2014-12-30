@@ -1,13 +1,11 @@
-# My gulpfile template
+# My gulpfiles
 
-\npm i -D browser-sync coffee-script run-sequence require-dir gulp gulp-bump gulp-coffee gulp-coffeelint gulp-header gulp-notify gulp-plumber gulp-rename gulp-uglify gulp-stylus
-
-## Demo
+\npm i -D browser-sync coffee-script require-dir browserify coffeeify gulp gulp-sequence gulp-bump gulp-header gulp-notify gulp-plumber gulp-stylus gulp-jade
 
 ## Quickstart
 
 ```shell
-bower install file-name
+bower i file-name
 ```
 
 ## Usage
