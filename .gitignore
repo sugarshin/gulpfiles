@@ -31,3 +31,5 @@ node_modules
 
 # Other
 ignore
+
+bower_components

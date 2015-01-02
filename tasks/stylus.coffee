@@ -3,10 +3,9 @@ stylus = require 'gulp-stylus'
 nib = require 'nib'
 plumber = require 'gulp-plumber'
 notify = require 'gulp-notify'
+$ = require './../config.json'
 
-$ =
-  SRC: 'src'
-  DEST: 'dest'
+
 
 path =
   css: [
