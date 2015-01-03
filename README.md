@@ -29,6 +29,8 @@ Type: *Type*
 [CoffeeScript](//coffeescript.org/)
 
 ```shell
+git submodule update --init
+
 npm i
 ```
 
