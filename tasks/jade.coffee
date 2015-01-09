@@ -8,14 +8,15 @@ $ = require './../config.json'
 
 path =
   html: [
-    "#{$.SRC}/**/*.jade"
+    "#{$.SRC}/jade/**/*.jade"
     "!#{$.SRC}/**/_**/*.jade"
     "!#{$.SRC}/**/_*.jade"
   ]
 
 gulp.task 'jade', ->
-  gulp.src "#{$.SRC}/*.jade"
+  gulp.src path.html
     .pipe plumber
       errorHandler: notify.onError '<%= error.message %>'
     .pipe jade pretty: true
-    .pipe gulp.dest $.DEST
+    .pipe gulp.dest $.DEST,
+      cwd: './'

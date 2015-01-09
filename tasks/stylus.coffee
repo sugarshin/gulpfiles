@@ -9,7 +9,8 @@ $ = require './../config.json'
 
 path =
   css: [
-    "#{$.SRC}/**/*.styl"
+    "#{$.SRC}/stylus/**/*.styl"
+    "!#{$.SRC}/stylus/import/*.styl"
     "!#{$.SRC}/**/_**/*.styl"
     "!#{$.SRC}/**/_*.styl"
   ]
@@ -21,4 +22,5 @@ gulp.task 'stylus', ->
     .pipe stylus
       use: nib()
       compress: true
-    .pipe gulp.dest $.DEST
+    .pipe gulp.dest $.DEST,
+      cwd: './'
