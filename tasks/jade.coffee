@@ -4,8 +4,6 @@ plumber = require 'gulp-plumber'
 notify = require 'gulp-notify'
 $ = require './../config.json'
 
-
-
 path =
   html: [
     "#{$.SRC}/jade/**/*.jade"

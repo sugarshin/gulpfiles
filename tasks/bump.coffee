@@ -1,21 +1,23 @@
 gulp = require 'gulp'
 bump = require 'gulp-bump'
 
+$ =
+  json: [
+    './*.json'
+    '!./config.json'
+  ]
+
 gulp.task 'bump-major', ->
-  gulp.src './*.json'
-    .pipe bump(
-      type: 'major'
-    )
-    .pipe gulp.dest('./')
+  gulp.src $.json
+    .pipe bump type: 'major'
+    .pipe gulp.dest './'
 
 gulp.task 'bump-minor', ->
-  gulp.src './*.json'
-    .pipe bump(
-      type: 'minor'
-    )
-    .pipe gulp.dest('./')
+  gulp.src $.json
+    .pipe bump type: 'minor'
+    .pipe gulp.dest './'
 
 gulp.task 'bump-patch', ->
-  gulp.src './*.json'
+  gulp.src $.json
     .pipe bump()
-    .pipe gulp.dest('./')
+    .pipe gulp.dest './'

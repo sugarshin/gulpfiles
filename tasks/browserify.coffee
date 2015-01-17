@@ -5,10 +5,10 @@ $ = require './../config.json'
 
 gulp.task 'browserify', ->
   browserify
-    entries: ["./#{$.SRC}/coffee/#{$.NAME}.coffee"]
+    entries: ["./#{$.SRC}/coffee/#{$.MAIN}.coffee"]
     extensions: ['.coffee', '.js']
   .transform 'coffeeify'
   .transform 'debowerify'
   .bundle()
-  .pipe source "#{$.NAME}.js"
+  .pipe source "#{$.MAIN}.js"
   .pipe gulp.dest $.DEST

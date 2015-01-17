@@ -1,5 +1,6 @@
 {
   "NAME": "file-name",
+  "MAIN": "main",
   "SRC": "src",
   "DEST": "dest"
 }
