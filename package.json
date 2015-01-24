@@ -1,10 +1,35 @@
 {
-  "name": "file-name",
+  "name": "gulpfiles",
   "version": "0.0.1",
   "description": "My gulpfiles",
   "homepage": "https://github.com/sugarshin",
   "repository": "git@github.com:sugarshin/gulpfiles.git",
   "author": "sugarshin",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "scripts": {
+    "init": "node bin/init.js"
+  },
+  "devDependencies": {
+    "browser-sync": "",
+    "browserify": "",
+    "coffee-script": "",
+    "coffeeify": "",
+    "debowerify": "",
+    "gulp": "",
+    "gulp-bump": "",
+    "gulp-header": "",
+    "gulp-imagemin": "",
+    "gulp-jade": "",
+    "gulp-notify": "",
+    "gulp-plumber": "",
+    "gulp-rename": "",
+    "gulp-replace": "",
+    "gulp-sequence": "",
+    "gulp-stylus": "",
+    "gulp-uglify": "",
+    "nib": "",
+    "require-dir": "",
+    "vinyl-source-stream": ""
+  }
 }

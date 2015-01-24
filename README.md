@@ -1,12 +1,15 @@
 # My gulpfiles
 
-\ npm i -D browser-sync browserify coffee-script coffeeify debowerify gulp gulp-bump gulp-header gulp-imagemin gulp-jade gulp-notify gulp-plumber gulp-rename gulp-replace gulp-sequence gulp-stylus gulp-uglify kouto-swiss require-dir vinyl-source-stream
+Dependent module name describe in package.json
+
+```shell
+npm run init
+```
 
 ## Quickstart
 
 ```shell
 npm i file-name
-bower i file-name
 ```
 
 ## Usage
@@ -37,7 +40,6 @@ Type: *Type*
 git submodule update --init
 
 npm i
-bower i
 
 gulp test
 ```

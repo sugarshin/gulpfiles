@@ -1,6 +1,6 @@
 gulp = require 'gulp'
 stylus = require 'gulp-stylus'
-koutoSwiss = require 'kouto-swiss'
+nib = require 'nib'
 plumber = require 'gulp-plumber'
 notify = require 'gulp-notify'
 $ = require './../config.json'
@@ -18,7 +18,7 @@ gulp.task 'stylus', ->
     .pipe plumber
       errorHandler: notify.onError '<%= error.message %>'
     .pipe stylus
-      use: koutoSwiss()
+      use: nib()
       compress: true
     .pipe gulp.dest $.DEST,
       cwd: './'
