@@ -6,6 +6,10 @@ Dependent module name describe in package.json
 npm run init
 ```
 
+---
+
+/// Scaffolding example ///
+
 ## Quickstart
 
 ```shell
