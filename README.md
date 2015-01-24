@@ -1,5 +1,7 @@
 # My gulpfiles
 
+## Initialize
+
 Dependent module name describe in package.json
 
 ```shell
@@ -8,7 +10,11 @@ npm run init
 
 ---
 
-/// Scaffolding example ///
+---
+
+---
+
+Scaffolding example
 
 ## Quickstart
 
