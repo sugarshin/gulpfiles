@@ -24,5 +24,5 @@ gulp.task 'default', ['start'], ->
   gulp.watch ["./#{$.SRC}/**/*.jade"], ['jade', reload]
   gulp.watch ["./#{$.SRC}/**/*.styl"], ['stylus', reload]
 
-# After -> 'gulp gh-pages'
 gulp.task 'build', sequence ['jade', 'stylus'], 'browserify', 'header', ['uglify', 'replace-min']
+# After -> 'git push' 'npm run gh-pages'

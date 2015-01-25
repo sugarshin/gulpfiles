@@ -1,0 +1,17 @@
+var exec = require('child_process').exec
+var $ = require '../config.json'
+
+var command = [
+  'git subtree push --prefix=',
+  $.DEST,
+  '/ origin gh-pages --squash'
+].join('');
+
+exec(command, function(err, stdout, stderr) {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log('stdout: ' + stdout);
+    console.log('stderr: ' + stderr);
+  }
+});
