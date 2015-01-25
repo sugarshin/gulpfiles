@@ -6,7 +6,7 @@ $ = require './../config.json'
 
 path =
   html: [
-    "#{$.SRC}/jade/**/*.jade"
+    "#{$.SRC}/**/*.jade"
     "!#{$.SRC}/**/_**/*.jade"
     "!#{$.SRC}/**/_*.jade"
   ]

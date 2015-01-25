@@ -7,8 +7,8 @@ $ = require './../config.json'
 
 path =
   css: [
-    "#{$.SRC}/stylus/**/*.styl"
-    "!#{$.SRC}/stylus/import/*.styl"
+    "#{$.SRC}/**/*.styl"
+    "!#{$.SRC}/**/import/*.styl"
     "!#{$.SRC}/**/_**/*.styl"
     "!#{$.SRC}/**/_*.styl"
   ]
