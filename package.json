@@ -8,8 +8,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "init": "node bin/init",
-    "gh-pages": "node bin/gh-pages"
+    "init": "node ./bin/init",
+    "gh-pages": "node ./bin/gh-pages"
   },
   "devDependencies": {
     "browser-sync": "",
