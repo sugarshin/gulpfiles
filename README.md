@@ -2,11 +2,15 @@
 
 ## Initialize
 
-Dependent module name describe in package.json
+**Dependent module name describe in package.json**
 
 ```shell
 npm run init
+```
 
+## Tasks
+
+```shell
 npm run
 ```
 
