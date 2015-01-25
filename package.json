@@ -9,7 +9,9 @@
   "private": true,
   "scripts": {
     "init": "node ./bin/init",
-    "gh-pages": "node ./bin/gh-pages"
+    "dev": "gulp",
+    "build": "gulp build",
+    "deploy": "gulp gh-pages"
   },
   "devDependencies": {
     "browser-sync": "",

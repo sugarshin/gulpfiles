@@ -6,6 +6,8 @@ Dependent module name describe in package.json
 
 ```shell
 npm run init
+
+npm run
 ```
 
 ---
