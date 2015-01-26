@@ -33,3 +33,4 @@ node_modules
 ignore
 
 bower_components
+dest/main.js

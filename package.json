@@ -18,6 +18,7 @@
     "browserify": "",
     "coffee-script": "",
     "coffeeify": "",
+    "del": "",
     "gulp": "",
     "gulp-bump": "",
     "gulp-header": "",

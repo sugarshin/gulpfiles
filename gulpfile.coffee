@@ -20,9 +20,9 @@ gulp.task 'serve', ->
 gulp.task 'start', sequence ['jade', 'stylus'], ['replace-normal', 'browserify'], 'serve'
 
 gulp.task 'default', ['start'], ->
-  gulp.watch ["./#{$.SRC}/coffee/*.coffee"], ['browserify', reload]
+  gulp.watch ["./#{$.SRC}/**/*.coffee"], ['browserify', reload]
   gulp.watch ["./#{$.SRC}/**/*.jade"], ['jade', reload]
   gulp.watch ["./#{$.SRC}/**/*.styl"], ['stylus', reload]
 
-gulp.task 'build', sequence ['jade', 'stylus'], 'browserify', 'header', ['uglify', 'replace-min']
+gulp.task 'build', sequence clean, ['jade', 'stylus', 'browserify', 'imagemin'], ['replace-min', 'header'], 'uglify'
 # After -> 'git push' 'npm run deploy'
