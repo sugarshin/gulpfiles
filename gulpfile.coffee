@@ -24,5 +24,5 @@ gulp.task 'default', ['start'], ->
   gulp.watch ["./#{$.SRC}/**/*.jade"], ['jade', reload]
   gulp.watch ["./#{$.SRC}/**/*.styl"], ['stylus', reload]
 
-gulp.task 'build', sequence clean, ['jade', 'stylus', 'browserify', 'imagemin'], ['replace-min', 'header'], 'uglify'
+gulp.task 'build', sequence 'clean', ['jade', 'stylus', 'browserify', 'imagemin'], ['replace-min', 'header'], 'uglify'
 # After -> 'git push' 'npm run deploy'
