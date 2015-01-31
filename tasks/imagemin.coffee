@@ -13,4 +13,4 @@ gulp.task 'imagemin', ->
       progressive: true
       svgoPlugins: [{removeViewBox: false}]
       # use: [pngquant()]
-    .pipe gulp.dest "#{$.BUILD}/img"
+    .pipe gulp.dest $.BUILD

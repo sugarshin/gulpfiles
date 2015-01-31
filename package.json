@@ -9,7 +9,7 @@
   "private": true,
   "scripts": {
     "init": "node ./bin/init",
-    "dev": "gulp",
+    "start": "gulp",
     "build": "gulp build",
     "deploy": "gulp gh-pages"
   },

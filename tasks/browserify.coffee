@@ -5,7 +5,7 @@ $ = require './../config.json'
 
 gulp.task 'browserify', ->
   browserify
-    entries: ["./#{$.SRC}/coffee/#{$.MAIN}.coffee"]
+    entries: ["./#{$.SRC}/js/#{$.MAIN}.coffee"]
     extensions: ['.coffee', '.js']
   .transform 'coffeeify'
   .bundle()
