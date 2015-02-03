@@ -20,12 +20,12 @@ npm run
 
 ---
 
-Scaffolding example
+example
 
 ## Quickstart
 
 ```shell
-npm i file-name
+npm i -S file-name
 ```
 
 ## Usage
