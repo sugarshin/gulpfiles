@@ -10,6 +10,7 @@ reload = browserSync.reload
 
 gulp.task 'serve', ->
   browserSync
+    notify: false
     startPath: '/'
     server:
       baseDir: './'
