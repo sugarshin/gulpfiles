@@ -5,7 +5,8 @@
 **Dependent module name describe in package.json**
 
 ```shell
-npm run init
+node ./.bin/init
+rm -rf .bin .git
 ```
 
 ## Tasks
@@ -57,7 +58,7 @@ git submodule update --init
 
 npm i
 
-gulp test
+npm test
 ```
 
 ## License

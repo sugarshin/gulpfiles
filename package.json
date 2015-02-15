@@ -1,14 +1,13 @@
 {
   "name": "gulpfiles",
   "version": "0.0.1",
-  "description": "My gulpfiles",
+  "description": "gulpfiles",
   "homepage": "https://github.com/sugarshin",
   "repository": "git@github.com:sugarshin/gulpfiles.git",
   "author": "sugarshin",
   "license": "MIT",
   "private": true,
   "scripts": {
-    "init": "node ./bin/init",
     "start": "gulp",
     "build": "gulp build",
     "deploy": "gulp gh-pages"
