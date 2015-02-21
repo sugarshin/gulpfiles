@@ -33,5 +33,11 @@
     "nib": "",
     "require-dir": "",
     "vinyl-source-stream": ""
+  },
+  "config": {
+    "NAME": "gulpfiles",
+    "MAIN": "main",
+    "SRC": "src",
+    "DST": "dst"
   }
 }

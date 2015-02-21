@@ -1,7 +1,7 @@
 gulp = require 'gulp'
 header = require 'gulp-header'
 fs = require 'fs'
-$ = require './../config.json'
+C = require('./package.json').config
 
 getPackageJson = -> JSON.parse(fs.readFileSync('./package.json'))
 
@@ -18,6 +18,6 @@ getBanner = ->
 
 
 gulp.task 'header', ->
-  gulp.src "#{$.DEST}/#{$.MAIN}.js"
+  gulp.src "#{C.DST}/#{C.MAIN}.js"
     .pipe header(getBanner())
-    .pipe gulp.dest $.DEST
+    .pipe gulp.dest C.DST

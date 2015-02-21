@@ -1,12 +1,12 @@
 gulp = require 'gulp'
 uglify = require 'gulp-uglify'
 rename = require 'gulp-rename'
-$ = require './../config.json'
+C = require('./package.json').config
 
 gulp.task 'uglify', ->
-  gulp.src "./#{$.DEST}/#{$.MAIN}.js"
+  gulp.src "./#{C.DST}/#{C.MAIN}.js"
     .pipe uglify
       preserveComments: 'some'
     .pipe rename
       extname: '.min.js'
-    .pipe gulp.dest $.DEST
+    .pipe gulp.dest C.DST

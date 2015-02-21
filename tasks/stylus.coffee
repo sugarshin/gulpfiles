@@ -3,14 +3,14 @@ stylus = require 'gulp-stylus'
 nib = require 'nib'
 plumber = require 'gulp-plumber'
 notify = require 'gulp-notify'
-$ = require './../config.json'
+C = require('./package.json').config
 
 path =
   css: [
-    "#{$.SRC}/**/*.styl"
-    "!#{$.SRC}/**/import/*.styl"
-    "!#{$.SRC}/**/_**/*.styl"
-    "!#{$.SRC}/**/_*.styl"
+    "#{C.SRC}/**/*.styl"
+    "!#{C.SRC}/**/import/*.styl"
+    "!#{C.SRC}/**/_**/*.styl"
+    "!#{C.SRC}/**/_*.styl"
   ]
 
 gulp.task 'stylus', ->
@@ -20,5 +20,5 @@ gulp.task 'stylus', ->
     .pipe stylus
       use: nib()
       compress: true
-    .pipe gulp.dest $.DEST,
+    .pipe gulp.dest C.DST,
       cwd: './'

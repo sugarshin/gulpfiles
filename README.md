@@ -1,18 +1,18 @@
-# My gulpfiles
+# gulpfiles
 
-## Initialize
+---
+
+---
+
+---
+
+initialize
 
 **Dependent module name describe in package.json**
 
 ```shell
 node ./.bin/init
 rm -rf .bin .git
-```
-
-## Tasks
-
-```shell
-npm run
 ```
 
 ---
@@ -26,7 +26,7 @@ example
 ## Quickstart
 
 ```shell
-npm i -S file-name
+npm i file-name
 ```
 
 ## Usage
@@ -55,8 +55,6 @@ Type: *Type*
 
 ```shell
 git submodule update --init
-
-npm i
 
 npm test
 ```

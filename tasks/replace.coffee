@@ -1,13 +1,13 @@
 gulp = require 'gulp'
 replace = require 'gulp-replace'
-$ = require './../config.json'
+C = require('./package.json').config
 
 gulp.task 'replace-min', ->
-  gulp.src "./#{$.DEST}/index.html"
-    .pipe replace("#{$.MAIN}.js", "#{$.MAIN}.min.js")
-    .pipe gulp.dest $.DEST
+  gulp.src "./#{C.DST}/index.html"
+    .pipe replace("#{C.MAIN}.js", "#{C.MAIN}.min.js")
+    .pipe gulp.dest C.DST
 
 gulp.task 'replace-normal', ->
-  gulp.src "./#{$.DEST}/index.html"
-    .pipe replace("#{$.MAIN}.min.js", "#{$.MAIN}.js")
-    .pipe gulp.dest $.DEST
+  gulp.src "./#{C.DST}/index.html"
+    .pipe replace("#{C.MAIN}.min.js", "#{C.MAIN}.js")
+    .pipe gulp.dest C.DST

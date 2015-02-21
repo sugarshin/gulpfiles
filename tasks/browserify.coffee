@@ -1,13 +1,13 @@
 gulp = require 'gulp'
 browserify = require 'browserify'
 source = require 'vinyl-source-stream'
-$ = require './../config.json'
+C = require('./package.json').config
 
 gulp.task 'browserify', ->
   browserify
-    entries: ["./#{$.SRC}/js/#{$.MAIN}.coffee"]
+    entries: ["./#{C.SRC}/js/#{C.MAIN}.coffee"]
     extensions: ['.coffee', '.js']
   .transform 'coffeeify'
   .bundle()
-  .pipe source "#{$.MAIN}.js"
-  .pipe gulp.dest $.DEST
+  .pipe source "#{C.MAIN}.js"
+  .pipe gulp.dest C.DST

@@ -3,13 +3,13 @@ jade = require 'gulp-jade'
 plumber = require 'gulp-plumber'
 notify = require 'gulp-notify'
 rename = require 'gulp-rename'
-$ = require './../config.json'
+C = require('./package.json').config
 
 path =
   html: [
-    "#{$.SRC}/**/*.jade"
-    "!#{$.SRC}/**/_**/*.jade"
-    "!#{$.SRC}/**/_*.jade"
+    "#{C.SRC}/**/*.jade"
+    "!#{C.SRC}/**/_**/*.jade"
+    "!#{C.SRC}/**/_*.jade"
   ]
 
 gulp.task 'jade', ->
@@ -19,5 +19,5 @@ gulp.task 'jade', ->
     .pipe jade pretty: true
     .pipe rename
       dirname: './'
-    .pipe gulp.dest $.DEST,
+    .pipe gulp.dest C.DST,
       cwd: './'
