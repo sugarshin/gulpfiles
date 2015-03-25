@@ -8,11 +8,8 @@
 
 initialize
 
-**Dependent module name describe in package.json**
-
 ```shell
-node ./.bin/init
-rm -rf .bin .git
+sh init.sh
 ```
 
 ---
@@ -49,13 +46,7 @@ Type: *Type*
 
 [CoffeeScript](//coffeescript.org/)
 
-[Mocha](//mochajs.org/)
-
-[power-assert](//github.com/twada/power-assert)
-
 ```shell
-git submodule update --init
-
 npm test
 ```
 

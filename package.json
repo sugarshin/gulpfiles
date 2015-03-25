@@ -1,9 +1,11 @@
 {
   "name": "gulpfiles",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "gulpfiles",
-  "homepage": "https://github.com/sugarshin",
-  "repository": "git@github.com:sugarshin/gulpfiles.git",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:tsumikiinc/gulpfiles.git"
+  },
   "author": "sugarshin",
   "license": "MIT",
   "private": true,
@@ -11,32 +13,10 @@
     "start": "gulp",
     "build": "gulp build"
   },
-  "devDependencies": {
-    "browser-sync": "",
-    "browserify": "",
-    "coffee-script": "",
-    "coffeeify": "",
-    "del": "",
-    "gulp": "",
-    "gulp-bump": "",
-    "gulp-header": "",
-    "gulp-imagemin": "",
-    "gulp-jade": "",
-    "gulp-notify": "",
-    "gulp-plumber": "",
-    "gulp-rename": "",
-    "gulp-replace": "",
-    "gulp-sequence": "",
-    "gulp-stylus": "",
-    "gulp-uglify": "",
-    "nib": "",
-    "require-dir": "",
-    "vinyl-source-stream": ""
-  },
   "config": {
-    "NAME": "gulpfiles",
-    "MAIN": "main",
+    "PATH": "/path/to/root",
     "SRC": "src",
-    "DST": "dst"
+    "DST": "dst",
+    "BUILD": "build"
   }
 }

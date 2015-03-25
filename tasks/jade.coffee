@@ -2,8 +2,7 @@ gulp = require 'gulp'
 jade = require 'gulp-jade'
 plumber = require 'gulp-plumber'
 notify = require 'gulp-notify'
-rename = require 'gulp-rename'
-C = require('./package.json').config
+$ = require('../package.json').projectConf
 
 path =
   html: [
@@ -17,7 +16,5 @@ gulp.task 'jade', ->
     .pipe plumber
       errorHandler: notify.onError '<%= error.message %>'
     .pipe jade pretty: true
-    .pipe rename
-      dirname: './'
-    .pipe gulp.dest C.DST,
+    .pipe gulp.dest "#{$.DST}#{$.PATH}",
       cwd: './'
