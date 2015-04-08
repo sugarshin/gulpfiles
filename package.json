@@ -13,10 +13,13 @@
     "start": "gulp",
     "build": "gulp build"
   },
-  "config": {
+  "engines": {
+    "node": "0.12.x"
+  },
+  "settings": {
     "PATH": "/path/to/root",
     "SRC": "src",
-    "DST": "dst",
+    "DEST": "dest",
     "BUILD": "build"
   }
 }

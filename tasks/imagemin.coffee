@@ -1,15 +1,14 @@
 gulp = require 'gulp'
 imagemin = require 'gulp-imagemin'
 pngquant = require 'imagemin-pngquant'
-$ = require('../package.json').config
+$ = require('../package.json').settings
 
-path =
-  img: [
-    "#{$.DST}#{$.PATH}/**/*.{jpg,jpeg,png,gif,svg}"
-  ]
+path = [
+  "#{$.DEST}#{$.PATH}/**/*.{jpg,jpeg,png,gif,svg}"
+]
 
 gulp.task 'imagemin', ->
-  gulp.src path.img
+  gulp.src path
     .pipe imagemin
       progressive: true
       svgoPlugins: [{removeViewBox: false}]

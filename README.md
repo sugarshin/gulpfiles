@@ -8,7 +8,9 @@
 
 initialize
 
-```shell
+```
+mkdir project-name && $_
+git clone --depth 1 git@github.com:sugarshin/gulpfiles.git .
 sh init.sh
 ```
 
@@ -22,7 +24,7 @@ example
 
 ## Quickstart
 
-```shell
+```
 npm i file-name
 ```
 
@@ -42,11 +44,7 @@ Type: *Type*
 
 ## Contributing
 
-[gulp.js](//gulpjs.com/)
-
-[CoffeeScript](//coffeescript.org/)
-
-```shell
+```
 npm test
 ```
 

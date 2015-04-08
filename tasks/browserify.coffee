@@ -1,7 +1,7 @@
 gulp = require 'gulp'
 browserify = require 'browserify'
 source = require 'vinyl-source-stream'
-$ = require('./package.json').config
+$ = require('../package.json').settings
 
 gulp.task 'browserify', ->
   browserify
@@ -10,4 +10,4 @@ gulp.task 'browserify', ->
   .transform 'coffeeify'
   .bundle()
   .pipe source 'main.js'
-  .pipe gulp.dest "#{$.DST}#{$.PATH}/js"
+  .pipe gulp.dest "#{$.DEST}#{$.PATH}/js"

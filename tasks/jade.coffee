@@ -2,19 +2,18 @@ gulp = require 'gulp'
 jade = require 'gulp-jade'
 plumber = require 'gulp-plumber'
 notify = require 'gulp-notify'
-$ = require('../package.json').projectConf
+$ = require('../package.json').settings
 
-path =
-  html: [
-    "#{C.SRC}/**/*.jade"
-    "!#{C.SRC}/**/_**/*.jade"
-    "!#{C.SRC}/**/_*.jade"
-  ]
+path = [
+  "#{C.SRC}/**/*.jade"
+  "!#{C.SRC}/**/_**/*.jade"
+  "!#{C.SRC}/**/_*.jade"
+]
 
 gulp.task 'jade', ->
-  gulp.src path.html
+  gulp.src path
     .pipe plumber
       errorHandler: notify.onError '<%= error.message %>'
     .pipe jade pretty: true
-    .pipe gulp.dest "#{$.DST}#{$.PATH}",
+    .pipe gulp.dest "#{$.DEST}#{$.PATH}",
       cwd: './'

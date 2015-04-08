@@ -1,8 +1,8 @@
 gulp = require 'gulp'
 browserSync = require 'browser-sync'
-sequence = require 'gulp-sequence'
+runSequence = require 'run-sequence'
 requireDir = require 'require-dir'
-$ = require('./package.json').config
+$ = require('./package.json').settings
 
 requireDir './tasks'
 
@@ -14,15 +14,15 @@ gulp.task 'serve', ->
     startPath: $.PATH
     server:
       baseDir: './'
-      index: "#{$.DST}#{$.PATH}/"
+      index: "#{$.DEST}#{$.PATH}/"
       routes:
-        "#{$.PATH}": "#{$.DST}#{$.PATH}/"
+        "#{$.PATH}": "#{$.DEST}#{$.PATH}/"
 
-gulp.task 'start', sequence ['jade', 'stylus'], [ 'browserify'], 'serve'
+gulp.task 'start', (cb) -> runSequence ['jade', 'stylus'], [ 'browserify'], 'serve', cb
 
 gulp.task 'default', ['start'], ->
   gulp.watch ["./#{$.SRC}/**/*.coffee"], ['browserify', reload]
   gulp.watch ["./#{$.SRC}/**/*.jade"], ['jade', reload]
   gulp.watch ["./#{$.SRC}/**/*.styl"], ['stylus', reload]
 
-gulp.task 'build', sequence 'clean', ['jade', 'stylus'], 'copy', ['replace-min', 'minify-css-jp', 'minify-css', 'browserify', 'imagemin'], 'uglify'
+gulp.task 'build', (cb) -> runSequence 'clean', ['jade', 'stylus'], 'copy', ['replace-min', 'minify-css', 'browserify', 'imagemin'], 'uglify', cb
