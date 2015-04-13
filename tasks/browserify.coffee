@@ -11,7 +11,7 @@ bOpts =
 
 bundler = (watch) ->
   if watch
-    debug: true
+    bOpts.debug = true
     bOpts.cache = {}
     bOpts.packageCache = {}
     bOpts.fullPath = true
