@@ -3,6 +3,7 @@ stylus = require 'gulp-stylus'
 nib = require 'nib'
 plumber = require 'gulp-plumber'
 notify = require 'gulp-notify'
+rename = require 'gulp-rename'
 $ = require('../package.json').settings
 
 path = [
@@ -18,5 +19,7 @@ gulp.task 'stylus', ->
     .pipe stylus
       use: nib()
       compress: true
+    .pipe rename
+      dirname: './'
     .pipe gulp.dest "#{$.DEST}#{$.PATH}/css",
       cwd: './'
