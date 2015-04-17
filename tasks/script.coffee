@@ -2,7 +2,7 @@ browserify = require 'browserify'
 watchify = require 'watchify'
 source = require 'vinyl-source-stream'
 
-bundler = (opt, watch) ->
+bundler = (gulp, opt, watch) ->
   bOpts = opt.browserifyOpts
 
   if watch
@@ -28,5 +28,5 @@ bundler = (opt, watch) ->
   return bundle()
 
 module.exports = (gulp, opt) ->
-  gulp.task 'browserify', -> bundler opt
-  gulp.task 'watchify', -> bundler opt, true
+  gulp.task 'browserify', -> bundler gulp, opt
+  gulp.task 'watchify', -> bundler gulp, opt, true

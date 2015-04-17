@@ -15,11 +15,5 @@
   },
   "engines": {
     "node": "0.12.x"
-  },
-  "settings": {
-    "PATH": "/path/to/root",
-    "SRC": "src",
-    "DEST": "dest",
-    "BUILD": "build"
   }
 }

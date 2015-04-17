@@ -1,6 +1,22 @@
-S = require('../package.json').settings
+# settings
+S =
+  PATH: "/path/to/root"
+  SRC: "src"
+  DEST: "dest"
+  BUILD: "build"
 
 module.exports =
+  S: S
+
+  serve:
+    notify: false
+    startPath: S.PATH
+    server:
+      baseDir: './'
+      index: "#{S.DEST}#{S.PATH}/"
+      routes:
+        "#{S.PATH}": "#{S.DEST}#{S.PATH}/"
+
   script:
     browserifyOpts:
       entries: ["./#{S.SRC}/js/main.coffee"]
@@ -28,6 +44,10 @@ module.exports =
     ]
     dest: "#{S.DEST}#{S.PATH}/css"
 
+  minifyCss:
+    src: "./#{S.DST}#{S.PATH_JP}/css/main.css"
+    dest: "#{S.BUILD}#{S.PATH_JP}/css"
+
   imagemin:
     src: [
       "#{S.DEST}#{S.PATH}/**/*.{jpg,jpeg,png,gif,svg}"
@@ -39,3 +59,7 @@ module.exports =
   replace:
     src: "#{S.DEST}#{S.PATH}/index.html"
     dest: "#{S.BUILD}#{S.PATH}"
+    replacements: [
+      ['main.js', "main.min.js?v#{Date.now()}"]
+      ['index.css', "index.min.css?v#{Date.now()}"]
+    ]
