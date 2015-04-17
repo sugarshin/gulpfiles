@@ -1,15 +1,10 @@
-gulp = require 'gulp'
 browserify = require 'browserify'
 watchify = require 'watchify'
 source = require 'vinyl-source-stream'
-$ = require('../package.json').settings
 
-bOpts =
-  entries: ["./#{$.SRC}/js/main.coffee"]
-  extensions: ['.coffee', '.js']
-  transform: ['coffeeify']
+bundler = (opt, watch) ->
+  bOpts = opt.browserifyOpts
 
-bundler = (watch) ->
   if watch
     bOpts.debug = true
     bOpts.cache = {}
@@ -24,7 +19,7 @@ bundler = (watch) ->
       .bundle()
       .on 'error', (err) -> console.log 'bundle error: ' + err
       .pipe source 'main.js'
-      .pipe gulp.dest "#{$.DEST}#{$.PATH}/js"
+      .pipe gulp.dest opt.dest
 
   b
     .on 'update', bundle
@@ -32,5 +27,6 @@ bundler = (watch) ->
 
   return bundle()
 
-gulp.task 'browserify', -> bundler()
-gulp.task 'watchify', -> bundler true
+module.exports = (gulp, opt) ->
+  gulp.task 'browserify', -> bundler opt
+  gulp.task 'watchify', -> bundler opt, true

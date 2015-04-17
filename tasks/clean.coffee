@@ -1,5 +1,4 @@
-gulp = require 'gulp'
 del = require 'del'
-$ = require('../package.json').settings
 
-gulp.task 'clean', (cb) -> del ["#{$.BUILD}#{$.PATH}"], cb
+module.exports = (gulp, opt) ->
+  gulp.task 'clean', (cb) -> del opt, cb
