@@ -1,4 +1,4 @@
 del = require 'del'
 
-module.exports = (gulp, opt) ->
-  gulp.task 'clean', (cb) -> del opt, cb
+module.exports = (gulp, conf) ->
+  gulp.task 'clean', (cb) -> del conf, cb

@@ -2,8 +2,8 @@ browserify = require 'browserify'
 watchify = require 'watchify'
 source = require 'vinyl-source-stream'
 
-bundler = (gulp, opt, watch) ->
-  bOpts = opt.browserifyOpts
+bundler = (gulp, conf, watch) ->
+  bOpts = conf.browserifyOpts
 
   if watch
     bOpts.debug = true
@@ -19,7 +19,7 @@ bundler = (gulp, opt, watch) ->
       .bundle()
       .on 'error', (err) -> console.log 'bundle error: ' + err
       .pipe source 'main.js'
-      .pipe gulp.dest opt.dest
+      .pipe gulp.dest conf.dest
 
   b
     .on 'update', bundle
@@ -27,6 +27,6 @@ bundler = (gulp, opt, watch) ->
 
   return bundle()
 
-module.exports = (gulp, opt) ->
-  gulp.task 'browserify', -> bundler gulp, opt
-  gulp.task 'watchify', -> bundler gulp, opt, true
+module.exports = (gulp, conf) ->
+  gulp.task 'browserify', -> bundler gulp, conf
+  gulp.task 'watchify', -> bundler gulp, conf, true

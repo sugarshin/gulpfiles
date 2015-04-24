@@ -63,3 +63,12 @@ module.exports =
       ['main.js', "main.min.js?v#{Date.now()}"]
       ['index.css', "index.min.css?v#{Date.now()}"]
     ]
+
+  copy:
+    src: [
+      "#{S.DEST}/**"
+      "!#{S.DEST}/css/**"
+      "!#{S.DEST}/js/**"
+      "!#{S.DEST}/img/**"
+    ]
+    dest: S.BUILD

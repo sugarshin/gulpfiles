@@ -1,7 +1,7 @@
-module.exports = (gulp, opt, $) ->
+module.exports = (gulp, conf, $) ->
   gulp.task 'minify-css', ->
-    gulp.src opt.src
-      .pipe $.minifyCSS()
+    gulp.src conf.src
+      .pipe $.minifyCss()
       .pipe $.rename
         suffix: '.min'
-      .pipe gulp.dest opt.dest
+      .pipe gulp.dest conf.dest
