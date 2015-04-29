@@ -6,7 +6,7 @@ bundler = (gulp, conf, watch) ->
   bOpts = conf.browserifyOpts
 
   if watch
-    bOpts.debug = true
+    # bOpts.debug = true
     bOpts.cache = {}
     bOpts.packageCache = {}
     bOpts.fullPath = true

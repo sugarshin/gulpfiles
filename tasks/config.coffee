@@ -17,7 +17,7 @@ module.exports =
       routes:
         "#{S.PATH}": "#{S.DEST}#{S.PATH}/"
 
-  script:
+  scripts:
     browserifyOpts:
       entries: ["./#{S.SRC}/js/main.coffee"]
       extensions: ['.coffee']
@@ -45,8 +45,8 @@ module.exports =
     dest: "#{S.DEST}#{S.PATH}/css"
 
   minifyCss:
-    src: "./#{S.DST}#{S.PATH_JP}/css/main.css"
-    dest: "#{S.BUILD}#{S.PATH_JP}/css"
+    src: "./#{S.DEST}#{S.PATH}/css/main.css"
+    dest: "#{S.BUILD}#{S.PATH}/css"
 
   imagemin:
     src: [
@@ -60,8 +60,8 @@ module.exports =
     src: "#{S.DEST}#{S.PATH}/index.html"
     dest: "#{S.BUILD}#{S.PATH}"
     replacements: [
-      ['main.js', "main.min.js?v#{Date.now()}"]
-      ['index.css', "index.min.css?v#{Date.now()}"]
+      ['main.js?v', "main.min.js?v#{Date.now()}"]
+      ['index.css?v', "index.min.css?v#{Date.now()}"]
     ]
 
   copy:

@@ -2,7 +2,8 @@ nib = require 'nib'
 
 module.exports = (gulp, conf, $) ->
   gulp.task 'stylus', ->
-    gulp.src conf.src
+    gulp
+      .src conf.src
       .pipe $.plumber
         errorHandler: $.notify.onError '<%= error.message %>'
       .pipe $.stylus
