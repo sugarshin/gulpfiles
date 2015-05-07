@@ -1,24 +1,19 @@
 gulp = require 'gulp'
 browserSync = require 'browser-sync'
 runSequence = require 'run-sequence'
+requireDir = require 'require-dir'
 $ = require('gulp-load-plugins')()
-conf = require './tasks/config'
 
-require('./tasks/jade')(gulp, conf.jade, $)
-require('./tasks/stylus')(gulp, conf.stylus, $)
-require('./tasks/imagemin')(gulp, conf.imagemin, $)
-require('./tasks/replace')(gulp, conf.replace, $)
-require('./tasks/uglify')(gulp, conf.uglify, $)
-require('./tasks/minify-css')(gulp, conf.minifyCss, $)
-require('./tasks/clean')(gulp, conf.clean)
-require('./tasks/scripts')(gulp, conf.scripts)
-require('./tasks/copy')(gulp, conf.copy)
+conf = require './gulp/conf'
 
 reload = browserSync.reload
 
+tasks = requireDir './gulp/tasks'
+Object.keys(tasks).forEach (name) -> tasks[name] gulp, conf, $
+
 gulp.task 'serve', -> browserSync conf.serve
 
-gulp.task 'start', (cb) ->
+gulp.task 'predefault', (cb) ->
   runSequence(
     ['jade', 'stylus', 'browserify']
     'watchify'
@@ -26,10 +21,10 @@ gulp.task 'start', (cb) ->
     cb
   )
 
-gulp.task 'default', ['start'], ->
-  gulp.watch ["./#{conf.S.SRC}/**/*.jade"], ['jade', reload]
-  gulp.watch ["./#{conf.S.SRC}/**/*.styl"], ['stylus', reload]
-  gulp.watch ["./#{conf.S.DEST}/**/*.js"], reload
+gulp.task 'default', ['predefault'], ->
+  gulp.watch ["./#{conf.D.SRC}/**/*.jade"], ['jade', reload]
+  gulp.watch ["./#{conf.D.SRC}/**/*.styl"], ['stylus', reload]
+  gulp.watch ["./#{conf.D.DEST}/**/*.js"], reload
 
 gulp.task 'build', (cb) ->
   runSequence(

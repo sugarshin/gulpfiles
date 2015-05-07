@@ -16,17 +16,17 @@ bundler = (gulp, conf, watch) ->
 
   bundle = ->
     b
-      .bundle()
-      .on 'error', (err) -> console.log 'bundle error: ' + err
-      .pipe source 'main.js'
-      .pipe gulp.dest conf.dest
+    .bundle()
+    .on 'error', (err) -> console.log 'bundle error: ' + err
+    .pipe source 'main.js'
+    .pipe gulp.dest conf.dest
 
   b
-    .on 'update', bundle
-    .on 'log', (message) -> console.log message
+  .on 'update', bundle
+  .on 'log', (message) -> console.log message
 
   return bundle()
 
-module.exports = (gulp, conf) ->
-  gulp.task 'browserify', -> bundler gulp, conf
-  gulp.task 'watchify', -> bundler gulp, conf, true
+module.exports = (gulp, {scripts}) ->
+  gulp.task 'browserify', -> bundler gulp, scripts
+  gulp.task 'watchify', -> bundler gulp, scripts, true
