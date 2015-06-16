@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 npm i -D babel babelify browser-sync browserify coffeeify del gulp \
   gulp-imagemin gulp-jade gulp-load-plugins gulp-minify-css \
