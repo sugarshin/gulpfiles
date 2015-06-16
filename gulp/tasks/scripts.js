@@ -1,10 +1,13 @@
 import browserify from 'browserify';
 import watchify from 'watchify';
 import source from 'vinyl-source-stream';
+import eventStream from 'event-stream';
 
-let bundler = (gulp, conf, watch) => {
+let bundler = (gulp, entry, conf, $, watch) => {
   let bOpts = conf.browserifyOpts;
   let b;
+
+  bOpts.entries = [conf.common, entry]
 
   if (watch) {
     // bOpts.debug = true
@@ -21,7 +24,11 @@ let bundler = (gulp, conf, watch) => {
       .on('error', err => {
         console.log(`bundle error: ${err}`);
       })
-      .pipe(source(conf.name))
+      .pipe(source(entry))
+      .pipe($.rename({
+        dirname: '',
+        extname: '.js'
+      }))
       .pipe(gulp.dest(conf.dest));
   };
 
@@ -34,11 +41,18 @@ let bundler = (gulp, conf, watch) => {
   return bundle();
 };
 
-export default function(gulp, {scripts}) {
+export default function(gulp, {scripts}, $) {
   gulp.task('browserify', () => {
-    return bundler(gulp, scripts);
+    let tasks = scripts.entries.map(entry => {
+      return bundler(gulp, entry, conf, $);
+    });
+    return eventStream.merge.apply(null, tasks);
   });
+
   gulp.task('watchify', () => {
-    return bundler(gulp, scripts, true);
+    let tasks = scripts.entries.map(entry => {
+      return bundler(gulp, entry, conf, $, true);
+    });
+    return eventStream.merge.apply(null, tasks);
   });
 }

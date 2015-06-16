@@ -18,19 +18,22 @@ export default {
       index: `${D.DEST}${D.PATH}/`,
       routes: (() => {
         let obj = {};
-        obj['' + D.PATH] = `${D.DEST}${D.PATH}/`;
+        obj[D.PATH] = `${D.DEST}${D.PATH}/`;
         return obj;
       })()
     }
   },
 
   scripts: {
+    common: '',
+    entries: [
+      `./${D.SRC}/js/main.coffee`,
+      `./${D.SRC}/js/sub.coffee`
+    ],
     browserifyOpts: {
-      entries: [`./${D.SRC}/js/main.js`],
       extensions: ['.coffee'],
       transform: ['babelify', 'coffeeify']
     },
-    name: 'bundle.js',
     dest: `${D.DEST}${D.PATH}/js`
   },
 
