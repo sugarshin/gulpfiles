@@ -21,7 +21,7 @@ let bundler = (gulp, conf, watch) => {
       .on('error', err => {
         console.log(`bundle error: ${err}`);
       })
-      .pipe(source('main.js'))
+      .pipe(source(conf.name))
       .pipe(gulp.dest(conf.dest));
   };
 

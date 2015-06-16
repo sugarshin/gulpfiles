@@ -30,6 +30,7 @@ export default {
       extensions: ['.coffee'],
       transform: ['babelify', 'coffeeify']
     },
+    name: 'bundle.js',
     dest: `${D.DEST}${D.PATH}/js`
   },
 
