@@ -1,13 +1,54 @@
 #!/usr/bin/env zsh
 
-npm i -D babel babelify browser-sync browserify coffeeify del gulp \
-  gulp-imagemin gulp-jade gulp-load-plugins gulp-minify-css \
-  gulp-notify gulp-plumber gulp-rename gulp-replace gulp-stylus \
-  gulp-uglify imagemin-pngquant nib require-dir run-sequence \
-  vinyl-source-stream watchify
+print_header() {
+  printf "\e[34m"
+  echo '----------------------------------------------------------'
+  echo '                        __      _____ __                  '
+  echo '           ____ ___  __/ /___  / __(_) /__  _____         '
+  echo '          / __ `/ / / / / __ \/ /_/ / / _ \/ ___/         '
+  echo '         / /_/ / /_/ / / /_/ / __/ / /  __(__  )          '
+  echo '         \__, /\__,_/_/ .___/_/ /_/_/\___/____/           '
+  echo '        /____/       /_/                                  '
+  echo '----------------------------------------------------------'
+  printf "\e[0m\n"
+}
 
-mkdir -p build dest src/html src/css src/js
+install_modules() {
+  echo 'Installing modules...'
+  npm i -D babel babelify browser-sync browserify coffeeify del gulp \
+    gulp-imagemin gulp-jade gulp-load-plugins gulp-minify-css \
+    gulp-notify gulp-plumber gulp-rename gulp-replace gulp-stylus \
+    gulp-uglify imagemin-pngquant nib require-dir run-sequence \
+    vinyl-source-stream watchify
+}
 
-touch src/html/index.jade src/css/index.styl src/js/main.js
+make_dirs() {
+  echo 'Make directories...'
+  mkdir -p build dest src/html src/css src/js
+}
 
-rm -rf .git bootstrap
+make_files() {
+  echo 'Make files...'
+  touch src/html/index.jade src/css/index.styl src/js/main.js
+}
+
+rms() {
+  echo 'Ready...'
+  rm -rf .git bootstrap
+}
+
+main() {
+  print_header
+
+  install_modules
+
+  make_dirs
+
+  make_files
+
+  rms
+
+  echo 'Done !!!!'
+}
+
+main
