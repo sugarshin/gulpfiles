@@ -43,15 +43,15 @@ let bundler = (gulp, entry, conf, $, watch) => {
 
 export default function(gulp, {scripts}, $) {
   gulp.task('browserify', () => {
-    let tasks = scripts.entries.map(entry => {
-      return bundler(gulp, entry, conf, $);
+    let tasks = scripts.entryFiles.map(entry => {
+      return bundler(gulp, entry, scripts, $);
     });
     return eventStream.merge.apply(null, tasks);
   });
 
   gulp.task('watchify', () => {
-    let tasks = scripts.entries.map(entry => {
-      return bundler(gulp, entry, conf, $, true);
+    let tasks = scripts.entryFiles.map(entry => {
+      return bundler(gulp, entry, scripts, $, true);
     });
     return eventStream.merge.apply(null, tasks);
   });

@@ -1,4 +1,4 @@
-// configure
+// config
 
 const D = {
   PATH: '/path/to/root',
@@ -26,8 +26,8 @@ export default {
 
   scripts: {
     common: '',
-    entries: [
-      `./${D.SRC}/js/main.coffee`,
+    entryFiles: [
+      `./${D.SRC}/js/main.js`,
       `./${D.SRC}/js/sub.coffee`
     ],
     browserifyOpts: {
