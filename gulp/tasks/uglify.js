@@ -1,12 +1,15 @@
-export default function(gulp, {uglify}, $) {
-  gulp.task('uglify', () => {
-    return gulp.src(uglify.src)
-      .pipe($.uglify({
-        preserveComments: 'some'
-      }))
-      .pipe($.rename({
-        suffix: '.min'
-      }))
-      .pipe(gulp.dest(uglify.dest));
-  });
-}
+import gulp from 'gulp';
+
+import P from '../plugins';
+import {uglify} from '../conf';
+
+gulp.task('uglify', () => {
+  return gulp.src(uglify.src)
+    .pipe(P.uglify({
+      preserveComments: 'some'
+    }))
+    .pipe(P.rename({
+      suffix: '.min'
+    }))
+    .pipe(gulp.dest(uglify.dest));
+});

@@ -1,15 +1,20 @@
+// todo
+import gulp from 'gulp';
 import browserify from 'browserify';
 import watchify from 'watchify';
 import source from 'vinyl-source-stream';
 import eventStream from 'event-stream';
 
-let bundler = (gulp, entry, conf, $, watch) => {
-  let bOpts = conf.browserifyOpts;
+import P from '../plugins';
+import {scripts} from '../conf';
+
+const bundler = (entry, isWatch) => {
+  let bOpts = scripts.browserifyOpts;
   let b;
 
-  bOpts.entries = [conf.common, entry]
+  bOpts.entries = [scripts.common, entry]
 
-  if (watch) {
+  if (isWatch) {
     // bOpts.debug = true
     bOpts.cache = {};
     bOpts.packageCache = {};
@@ -25,11 +30,11 @@ let bundler = (gulp, entry, conf, $, watch) => {
         console.log(`bundle error: ${err}`);
       })
       .pipe(source(entry))
-      .pipe($.rename({
+      .pipe(P.rename({
         dirname: '',
         extname: '.js'
       }))
-      .pipe(gulp.dest(conf.dest));
+      .pipe(gulp.dest(scripts.dest));
   };
 
   b
@@ -41,18 +46,16 @@ let bundler = (gulp, entry, conf, $, watch) => {
   return bundle();
 };
 
-export default function(gulp, {scripts}, $) {
-  gulp.task('browserify', () => {
-    let tasks = scripts.entryFiles.map(entry => {
-      return bundler(gulp, entry, scripts, $);
-    });
-    return eventStream.merge.apply(null, tasks);
+gulp.task('browserify', () => {
+  let tasks = scripts.entryFiles.map(entry => {
+    return bundler(entry);
   });
+  return eventStream.merge.apply(null, tasks);
+});
 
-  gulp.task('watchify', () => {
-    let tasks = scripts.entryFiles.map(entry => {
-      return bundler(gulp, entry, scripts, $, true);
-    });
-    return eventStream.merge.apply(null, tasks);
+gulp.task('watchify', () => {
+  let tasks = scripts.entryFiles.map(entry => {
+    return bundler(entry, true);
   });
-}
+  return eventStream.merge.apply(null, tasks);
+});

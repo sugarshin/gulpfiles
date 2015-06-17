@@ -1,23 +1,16 @@
 import gulp from 'gulp';
-import loadPlugins from 'gulp-load-plugins';
+import requireDir from 'require-dir';
 import browserSync from 'browser-sync';
 import runSequence from 'run-sequence';
-import requireDir from 'require-dir';
 
-import conf from './gulp/conf';
+import {D, serve} from './gulp/conf';
 
-let $ = loadPlugins();
+const reload = browserSync.reload;
 
-let reload = browserSync.reload;
-
-let tasks = requireDir('./gulp/tasks');
-
-Object.keys(tasks).forEach(name => {
-  tasks[name](gulp, conf, $);
-});
+requireDir('./gulp/tasks');
 
 gulp.task('serve', () => {
-  browserSync(conf.serve);
+  browserSync(serve);
 });
 
 gulp.task('predefault', cb => {
@@ -31,15 +24,15 @@ gulp.task('predefault', cb => {
 
 gulp.task('default', ['predefault'], () => {
   gulp.watch(
-    [`./${conf.D.SRC}/**/*.jade`],
+    [`./${D.SRC}/**/*.jade`],
     ['jade', reload]
   );
   gulp.watch(
-    [`./${conf.D.SRC}/**/*.styl`],
+    [`./${D.SRC}/**/*.styl`],
     ['stylus', reload]
   );
   gulp.watch(
-    [`./${conf.D.DEST}/**/*.js`],
+    [`./${D.DEST}/**/*.js`],
     reload
   );
 });

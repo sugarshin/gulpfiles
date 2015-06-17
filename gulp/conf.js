@@ -27,8 +27,8 @@ export default {
   scripts: {
     common: '',
     entryFiles: [
-      `./${D.SRC}/js/main.js`,
-      `./${D.SRC}/js/sub.coffee`
+      `./${D.SRC}/js/main.js`//,
+      // `./${D.SRC}/js/sub.coffee`
     ],
     browserifyOpts: {
       extensions: ['.coffee'],
@@ -72,14 +72,16 @@ export default {
     dest: `${D.BUILD}${D.PATH}/img`
   },
 
-  clean: [`${D.BUILD}${D.PATH}`],
+  clean: {
+    path: [`${D.BUILD}${D.PATH}`]
+  },
 
   replace: {
     src: `${D.DEST}${D.PATH}/index.html`,
     dest: `${D.BUILD}${D.PATH}`,
     replacements: [
       ['main.js?v', `main.min.js?v${Date.now()}`],
-      ['index.css?v', `index.min.css?v${Date.now()}`]
+      ['main.css?v', `main.min.css?v${Date.now()}`]
     ]
   },
 

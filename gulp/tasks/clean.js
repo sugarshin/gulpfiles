@@ -1,7 +1,8 @@
+import gulp from 'gulp';
 import del from 'del';
 
-export default function(gulp, {clean}) {
-  gulp.task('clean', cb => {
-    del(clean, cb);
-  });
-}
+import {clean} from '../conf';
+
+gulp.task('clean', cb => {
+  del(clean.path, cb);
+});
