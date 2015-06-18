@@ -1,18 +1,18 @@
 import gulp from 'gulp';
 
-import P from '../plugins';
-import {jade} from '../conf';
+import {plumber, notify, jade, rename} from '../plugins';
+import {jade as conf} from '../conf';
 
 gulp.task('jade', () => {
-  return gulp.src(jade.src)
-    .pipe(P.plumber({
-      errorHandler: P.notify.onError('<%= error.message %>')
+  return gulp.src(conf.src)
+    .pipe(plumber({
+      errorHandler: notify.onError('<%= error.message %>')
     }))
-    .pipe(P.jade(/*{
+    .pipe(jade(/*{
       pretty: true
     }*/))
-    .pipe(P.rename(path => {
+    .pipe(rename(path => {
       path.dirname = path.dirname.replace('html', '.');
     }))
-    .pipe(gulp.dest(jade.dest));
+    .pipe(gulp.dest(conf.dest));
 });

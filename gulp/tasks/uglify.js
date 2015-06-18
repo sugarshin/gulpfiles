@@ -1,15 +1,15 @@
 import gulp from 'gulp';
 
-import P from '../plugins';
-import {uglify} from '../conf';
+import {uglify, rename} from '../plugins';
+import {uglify as conf} from '../conf';
 
 gulp.task('uglify', () => {
-  return gulp.src(uglify.src)
-    .pipe(P.uglify({
+  return gulp.src(conf.src)
+    .pipe(uglify({
       preserveComments: 'some'
     }))
-    .pipe(P.rename({
+    .pipe(rename({
       suffix: '.min'
     }))
-    .pipe(gulp.dest(uglify.dest));
+    .pipe(gulp.dest(conf.dest));
 });

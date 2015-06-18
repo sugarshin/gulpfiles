@@ -1,11 +1,11 @@
 import gulp from 'gulp';
 
-import P from '../plugins';
-import {minifyCss} from '../conf';
+import {minifyCss, rename} from '../plugins';
+import {minifyCss as conf} from '../conf';
 
 gulp.task('minify-css', () => {
-  return gulp.src(minifyCss.src)
-    .pipe(P.minifyCss())
-    .pipe(P.rename({suffix: '.min'}))
-    .pipe(gulp.dest(minifyCss.dest));
+  return gulp.src(conf.src)
+    .pipe(minifyCss())
+    .pipe(rename({suffix: '.min'}))
+    .pipe(gulp.dest(conf.dest));
 });

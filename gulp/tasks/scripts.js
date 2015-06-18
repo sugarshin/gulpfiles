@@ -5,14 +5,14 @@ import watchify from 'watchify';
 import source from 'vinyl-source-stream';
 import eventStream from 'event-stream';
 
-import P from '../plugins';
-import {scripts} from '../conf';
+import {rename} from '../plugins';
+import {scripts as conf} from '../conf';
 
 const bundler = (entry, isWatch) => {
-  let bOpts = scripts.browserifyOpts;
+  let bOpts = conf.browserifyOpts;
   let b;
 
-  bOpts.entries = [scripts.common, entry]
+  bOpts.entries = [conf.common, entry]
 
   if (isWatch) {
     // bOpts.debug = true
@@ -30,11 +30,11 @@ const bundler = (entry, isWatch) => {
         console.log(`bundle error: ${err}`);
       })
       .pipe(source(entry))
-      .pipe(P.rename({
+      .pipe(rename({
         dirname: '',
         extname: '.js'
       }))
-      .pipe(gulp.dest(scripts.dest));
+      .pipe(gulp.dest(conf.dest));
   };
 
   b
@@ -47,14 +47,14 @@ const bundler = (entry, isWatch) => {
 };
 
 gulp.task('browserify', () => {
-  let tasks = scripts.entryFiles.map(entry => {
+  let tasks = conf.entryFiles.map(entry => {
     return bundler(entry);
   });
   return eventStream.merge.apply(null, tasks);
 });
 
 gulp.task('watchify', () => {
-  let tasks = scripts.entryFiles.map(entry => {
+  let tasks = conf.entryFiles.map(entry => {
     return bundler(entry, true);
   });
   return eventStream.merge.apply(null, tasks);
