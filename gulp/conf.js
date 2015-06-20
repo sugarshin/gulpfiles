@@ -61,7 +61,7 @@ export default {
   },
 
   minifyCss: {
-    src: `./${D.DEST}${D.PATH}/css/main.css`,
+    src: `${D.DEST}${D.PATH}/css/main.css`,
     dest: `${D.BUILD}${D.PATH}/css`
   },
 
