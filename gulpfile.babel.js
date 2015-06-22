@@ -9,8 +9,7 @@ requireDir('./gulp/tasks');
 
 gulp.task('predefault', cb => {
   runSequence(
-    ['jade', 'stylus'],
-    'watchify',
+    ['jade', 'stylus', 'watchify'],
     'serve',
     cb
   );
