@@ -1,6 +1,6 @@
 {
   "name": "gulpfiles",
-  "version": "3.0.4",
+  "version": "3.1.0",
   "description": "gulpfiles",
   "repository": {
     "type": "git",
@@ -15,5 +15,9 @@
   },
   "engines": {
     "node": "0.12.x"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/sugarshin/gulpfiles/issues"
+  },
+  "homepage": "https://github.com/sugarshin/gulpfiles#readme"
 }

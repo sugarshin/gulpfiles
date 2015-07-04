@@ -15,7 +15,7 @@ print_header() {
 
 install_modules() {
   echo 'Installing modules...'
-  npm i -D babel babelify browser-sync browserify coffeeify del \
+  npm i -D babel-core babelify browser-sync browserify coffeeify del \
     event-stream gulp gulp-imagemin gulp-jade gulp-load-plugins \
     gulp-minify-css gulp-notify gulp-plumber gulp-rename \
     gulp-replace gulp-stylus gulp-uglify imagemin-pngquant nib \
