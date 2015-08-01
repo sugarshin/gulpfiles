@@ -1,8 +1,8 @@
 // todo
 import gulp from 'gulp';
 
-import {replace} from '../plugins';
-import {replace as conf} from '../conf';
+import { replace } from '../plugins';
+import { replace as conf } from '../conf';
 
 gulp.task('replace', () => {
   return gulp.src(conf.src)

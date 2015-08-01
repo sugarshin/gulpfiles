@@ -1,8 +1,8 @@
 import gulp from 'gulp';
 import nib from 'nib';
 
-import {plumber, notify, stylus, rename} from '../plugins';
-import {stylus as conf} from '../conf';
+import { plumber, notify, stylus, rename } from '../plugins';
+import { stylus as conf } from '../conf';
 
 gulp.task('stylus', () => {
   return gulp.src(conf.src)

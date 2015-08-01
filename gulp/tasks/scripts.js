@@ -5,8 +5,8 @@ import watchify from 'watchify';
 import source from 'vinyl-source-stream';
 import eventStream from 'event-stream';
 
-import {rename} from '../plugins';
-import {scripts as conf} from '../conf';
+import { rename } from '../plugins';
+import { scripts as conf } from '../conf';
 
 const bundler = (entry, isWatch) => {
   let bOpts = conf.browserifyOpts;

@@ -1,9 +1,9 @@
 import gulp from 'gulp';
 import requireDir from 'require-dir';
 import runSequence from 'run-sequence';
-import {reload} from 'browser-sync';
+import { reload } from 'browser-sync';
 
-import {D} from './gulp/conf';
+import { D } from './gulp/conf';
 
 requireDir('./gulp/tasks');
 

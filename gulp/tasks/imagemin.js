@@ -1,8 +1,8 @@
 import gulp from 'gulp';
 import pngquant from 'imagemin-pngquant';
 
-import {imagemin, rename} from '../plugins';
-import {imagemin as conf} from '../conf';
+import { imagemin, rename } from '../plugins';
+import { imagemin as conf } from '../conf';
 
 gulp.task('imagemin', () => {
   return gulp.src(conf.src)

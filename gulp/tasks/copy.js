@@ -1,6 +1,6 @@
 import gulp from 'gulp';
 
-import {copy as conf} from '../conf';
+import { copy as conf } from '../conf';
 
 gulp.task('copy', () => {
   return gulp.src(conf.src)

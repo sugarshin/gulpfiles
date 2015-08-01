@@ -1,7 +1,7 @@
 import gulp from 'gulp';
 
-import {plumber, notify, jade, rename} from '../plugins';
-import {jade as conf} from '../conf';
+import { plumber, notify, jade, rename } from '../plugins';
+import { jade as conf } from '../conf';
 
 gulp.task('jade', () => {
   return gulp.src(conf.src)

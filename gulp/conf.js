@@ -8,6 +8,7 @@ const D = {
 };
 
 export default {
+
   D,
 
   serve: {
@@ -92,4 +93,5 @@ export default {
     ],
     dest: D.BUILD
   }
+
 }
