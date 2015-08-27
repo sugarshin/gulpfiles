@@ -9,6 +9,7 @@ print_header() {
   echo '         / /_/ / /_/ / / /_/ / __/ / /  __(__  )          '
   echo '         \__, /\__,_/_/ .___/_/ /_/_/\___/____/           '
   echo '        /____/       /_/                                  '
+  echo '                                                          '
   echo '----------------------------------------------------------'
   printf "\e[0m\n"
 }
@@ -19,7 +20,7 @@ install_modules() {
     event-stream gulp gulp-imagemin gulp-jade gulp-load-plugins \
     gulp-minify-css gulp-notify gulp-plumber gulp-rename \
     gulp-replace gulp-stylus gulp-uglify imagemin-pngquant nib \
-    require-dir run-sequence vinyl-source-stream watchify
+    licensify require-dir run-sequence vinyl-source-stream watchify
 }
 
 make_dirs() {
