@@ -2,6 +2,7 @@
 import gulp from 'gulp';
 import browserify from 'browserify';
 import watchify from 'watchify';
+import licensify from 'licensify';
 import source from 'vinyl-source-stream';
 import eventStream from 'event-stream';
 
@@ -23,6 +24,8 @@ const bundler = (entry, isWatch) => {
   } else {
     b = browserify(bOpts);
   }
+
+  b.plugin(licensify, {scanBrowser: true});
 
   let bundle = () => {
     return b.bundle()
