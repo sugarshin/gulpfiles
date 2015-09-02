@@ -1,5 +1,5 @@
-// todo
 import gulp from 'gulp';
+import gutil from 'gulp-util';
 import browserify from 'browserify';
 import watchify from 'watchify';
 import licensify from 'licensify';
@@ -27,10 +27,10 @@ const bundler = (entry, isWatch) => {
 
   b.plugin(licensify, {scanBrowser: true});
 
-  let bundle = () => {
+  const bundle = () => {
     return b.bundle()
       .on('error', err => {
-        console.log(`bundle error: ${err}`);
+        gutil.log(gutil.colors.bgRed('ERROR'), err);
       })
       .pipe(source(entry))
       .pipe(rename({
@@ -43,21 +43,21 @@ const bundler = (entry, isWatch) => {
   b
   .on('update', bundle)
   .on('log', message => {
-    console.log(message);
+    gutil.log(gutil.colors.bgGreen('Bundle'), gutil.colors.magenta(entry), message);
   });
 
   return bundle();
 };
 
 gulp.task('browserify', () => {
-  let tasks = conf.entryFiles.map(entry => {
+  const tasks = conf.entryFiles.map(entry => {
     return bundler(entry);
   });
   return eventStream.merge.apply(null, tasks);
 });
 
 gulp.task('watchify', () => {
-  let tasks = conf.entryFiles.map(entry => {
+  const tasks = conf.entryFiles.map(entry => {
     return bundler(entry, true);
   });
   return eventStream.merge.apply(null, tasks);
