@@ -10,7 +10,7 @@ import { rename } from '../plugins';
 import { scripts as conf } from '../conf';
 
 const bundler = (entry, isWatch) => {
-  let bOpts = conf.browserifyOpts;
+  const bOpts = conf.browserifyOpts;
   let b;
 
   bOpts.entries = [conf.common, entry]
@@ -25,7 +25,7 @@ const bundler = (entry, isWatch) => {
     b = browserify(bOpts);
   }
 
-  b.plugin(licensify, {scanBrowser: true});
+  b.plugin(licensify);
 
   const bundle = () => {
     return b.bundle()
