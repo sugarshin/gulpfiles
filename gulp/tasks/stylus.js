@@ -1,19 +1,19 @@
-import gulp from 'gulp';
-import nib from 'nib';
+const gulp = require('gulp');
+const nib = require('nib');
 
-import { plumber, notify, stylus, rename } from '../plugins';
-import { stylus as conf } from '../conf';
+const plugins = require('../plugins');
+const conf = require('../conf').stylus;
 
 gulp.task('stylus', () => {
   return gulp.src(conf.src)
-    .pipe(plumber({
-      errorHandler: notify.onError('<%= error.message %>')
+    .pipe(plugins.plumber({
+      errorHandler: plugins.notify.onError('<%= error.message %>')
     }))
-    .pipe(stylus({
+    .pipe(plugins.stylus({
       use: nib(),
       compress: true
     }))
-    .pipe(rename({
+    .pipe(plugins.rename({
       dirname: './'
     }))
     .pipe(gulp.dest(conf.dest, {

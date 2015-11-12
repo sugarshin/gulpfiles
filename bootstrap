@@ -16,8 +16,9 @@ print_header() {
 
 install_modules() {
   echo 'Installing modules...'
-  npm i -D babel-core babel-eslint babelify browser-sync browserify coffeeify \
-    del eslint eslint-plugin-babel event-stream gulp gulp-imagemin gulp-jade \
+  npm i -D babel-eslint babelify browser-sync browserify del \
+    eslint eslint-plugin-babel eslint-plugin-react eslint-config-sugarshin \
+    event-stream gulp gulp-imagemin gulp-jade \
     gulp-load-plugins gulp-minify-css gulp-notify gulp-plumber gulp-rename \
     gulp-replace gulp-stylus gulp-uglify gulp-util imagemin-pngquant nib \
     licensify require-dir run-sequence vinyl-source-stream watchify

@@ -1,13 +1,13 @@
-import gulp from 'gulp';
-import gutil from 'gulp-util';
-import browserify from 'browserify';
-import watchify from 'watchify';
-import licensify from 'licensify';
-import source from 'vinyl-source-stream';
-import eventStream from 'event-stream';
+const gulp = require('gulp');
+const gutil = require('gulp-util');
+const browserify = require('browserify');
+const watchify = require('watchify');
+const licensify = require('licensify');
+const source = require('vinyl-source-stream');
+const eventStream = require('event-stream');
 
-import { rename } from '../plugins';
-import { scripts as conf } from '../conf';
+const rename = require('../plugins').rename;
+const conf = require('../conf').scripts;
 
 const bundler = (entry, isWatch) => {
   const bOpts = conf.browserifyOpts;

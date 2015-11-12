@@ -1,13 +1,11 @@
-import gulp from 'gulp';
+const gulp = require('gulp');
 
-import { uglify, rename } from '../plugins';
-import { uglify as conf } from '../conf';
+const plugins = require('../plugins');
+const conf = require('../conf').uglify;
 
 gulp.task('uglify', () => {
   return gulp.src(conf.src)
-    .pipe(uglify(conf.opts))
-    .pipe(rename({
-      suffix: '.min'
-    }))
+    .pipe(plugins.uglify(conf.opts))
+    .pipe(plugins.rename({ suffix: '.min' }))
     .pipe(gulp.dest(conf.dest));
 });

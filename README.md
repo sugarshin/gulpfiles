@@ -15,7 +15,7 @@ git clone --depth 1 git@github.com:sugarshin/gulpfiles.git .
 ```
 npm start
 
-npm ru build
+npm run build
 ```
 
 ## License

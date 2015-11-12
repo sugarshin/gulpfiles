@@ -3,14 +3,14 @@
   "description": "gulpfiles",
   "repository": {
     "type": "git",
-    "url": "git@github.com:sugarshin/gulpfiles.git"
+    "url": "git+https://github.com/sugarshin/gulpfiles.git"
   },
   "author": "sugarshin",
   "license": "MIT",
   "private": true,
   "scripts": {
     "start": "gulp",
-    "eslint": "eslint",
+    "eslint": "eslint --cache .",
     "build": "NODE_ENV=production gulp build"
   },
   "bugs": {

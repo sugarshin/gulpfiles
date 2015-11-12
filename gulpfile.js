@@ -1,9 +1,9 @@
-import gulp from 'gulp';
-import requireDir from 'require-dir';
-import runSequence from 'run-sequence';
-import { reload } from 'browser-sync';
+const gulp = require('gulp');
+const requireDir = require('require-dir');
+const runSequence = require('run-sequence');
+const reload = require('browser-sync').reload;
 
-import { DIR } from './gulp/conf';
+const DIR = require('./gulp/conf').DIR;
 
 requireDir('./gulp/tasks');
 

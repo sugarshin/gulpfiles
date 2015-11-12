@@ -1,8 +1,9 @@
-### https://raw.github.com/github/gitignore/b8da0e3a89f5d75acdb9d5fed06700bfff3695f9/Node.gitignore
+### https://raw.github.com/github/gitignore/3d6f6f82101bcc6d79216c74a2bd1e7d61cfcda7/Node.gitignore
 
 # Logs
 logs
 *.log
+npm-debug.log*
 
 # Runtime data
 pids
@@ -25,5 +26,11 @@ coverage
 build/Release
 
 # Dependency directory
-# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
+# https://docs.npmjs.com/misc/faq#should-i-check-my-node-modules-folder-into-git
 node_modules
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
